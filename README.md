@@ -1,92 +1,153 @@
-Eurobuch Search
-<img src="assets/extension-icon.png" alt="Eurobuch Search" width="128" height="128">
-Search and compare book prices across multiple European platforms via Eurobuch's metasearch API
+# Eurobuch Search for Raycast
 
-✨ Features
-🔍 Smart Search - Search by ISBN, author, or book title
-💰 Price Comparison - Compare prices from dozens of European book platforms
-🚚 Shipping Costs - View shipping costs and total prices at a glance
-📊 Smart Sorting - Results automatically sorted by best total price
-⚡ Fast & Cached - Debounced search with intelligent result caching
-📋 Quick Actions - Copy ISBN, links, or complete details with keyboard shortcuts
-🏷️ Book Condition - See book condition (new, used, etc.) where available
-🚀 Installation
-From Raycast Store
-Open Raycast
-Search for "Eurobuch Search"
-Click Install
-Manual Installation
-bash
+> Search and compare book prices across multiple European platforms
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Raycast](https://img.shields.io/badge/Raycast-Extension-red.svg)](https://raycast.com)
+
+## Features
+
+- 🔍 **Smart Search** - Search by ISBN, author, or title
+- 💰 **Price Comparison** - Compare prices from multiple European book platforms
+- 🚚 **Total Cost** - See price + shipping costs at a glance
+- ⚡ **Quick Access** - Auto-fill from clipboard or selected text
+- 📊 **Price Trends** - Direct link to Eurobuch's price history
+- 🔄 **ISBN Conversion** - Automatic ISBN-10 to ISBN-13 conversion
+- 🎯 **Smart Sorting** - Results sorted by best total price
+
+## Installation
+
+### From Raycast Store (recommended)
+
+1. Open Raycast
+2. Search for "Eurobuch Search"
+3. Click Install
+
+### Manual Installation
+
+```bash
 git clone https://github.com/wdeu/eurobuch-search.git
 cd eurobuch-search
 npm install
 npm run dev
-⚙️ Setup
-1. Get API Credentials (Optional)
-The extension works out-of-the-box with test credentials (test/test), but for full access you can get your own API credentials:
+```
 
-Visit Eurobuch.de
-Contact their support to request API access for metasearch
-You'll receive:
-Platform ID (your unique identifier)
-API Password
-Note: The default test credentials provide limited results. For full access to all book platforms, use your own credentials.
+## Quick Start
 
-2. Configure Extension (Optional)
-Open Raycast preferences (⌘ + ,)
-Navigate to Extensions → Eurobuch Search
-Update credentials if you have your own:
-Platform ID: Your Eurobuch platform identifier (default: test)
-Password: Your API password (default: test)
-Result Limit: Choose 10, 20, or 30 results (optional, default: 10)
-📖 Usage
-Quick Start
-Open Raycast (⌘ + Space)
-Type Search Books or eurobuch
-Smart ISBN Detection:
-Select ISBN (double-click) → Extension auto-fills
-Copy ISBN → Extension auto-fills from clipboard
-No ISBN? → Just type to search
-Search Methods
-ISBN: Select or copy ISBN, then open extension (auto-filled)
-Manual ISBN: Enter numbers only (e.g., 9783161484100 or 1068525728X)
-Title/Author: Enter any text (e.g., Harry Potter)
-Keyboard Shortcuts
-Browse results sorted by total price (price + shipping)
-Use keyboard shortcuts:
-⏎ - Open Eurobuch overview (with price trends & all offers)
-⌘ + O - Open direct dealer offer
-⌘ + C - Copy link
-⌘ + I - Copy ISBN
-⌘ + ⇧ + C - Copy all details
-⌘ + K - Show actions menu
-🎯 Search Tips
-For fastest workflow: Double-click ISBN to select it, then open extension
-ISBN-10 auto-converts: 1068525728X automatically converts to 9781068525728
-For ISBN search: Enter numbers only (with or without dashes)
-For title search: Use specific keywords for better results
-For author search: Enter last name first for better matching
-Mixed results: The API searches all fields simultaneously
-Minimum length: Enter at least 2 characters to start searching
-Limited API results?: Press Enter on any book to see all 35+ offers on Eurobuch website
-🖥️ Screenshots
-Search Results
-Results are displayed with clear pricing information and sorted by best price.
+The extension works immediately with test credentials (`test`/`test`).
 
-Detail View
-Press ⌘ + D to see detailed information including:
+### Basic Usage
 
-Complete bibliographic data
-Breakdown of price and shipping
-Dealer and platform information
-Book condition (if available)
-🛠️ Development
-Prerequisites
-Node.js 18+
-npm or yarn
-Raycast app installed
-Setup Development Environment
-bash
+1. Open Raycast (`⌘ Space`)
+2. Type "Search Books"
+3. Enter ISBN, title, or author
+4. Browse results sorted by price
+
+### Pro Tips
+
+**Fastest workflow:**
+- Double-click an ISBN on any website
+- Open Raycast → "Search Books"
+- ISBN is automatically filled in ✨
+
+**Alternative:**
+- Copy ISBN to clipboard
+- Open extension
+- ISBN is auto-detected
+
+## Configuration
+
+Open Raycast Preferences → Extensions → Eurobuch Search
+
+### Settings
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Platform ID | `test` | Your Eurobuch platform identifier |
+| Password | `test` | Your Eurobuch API password |
+| Result Limit | `10` | Number of results (10, 20, or 30) |
+
+### Get Your Own Credentials
+
+For full access to all book platforms:
+
+1. Visit [eurobuch.de](https://www.eurobuch.de)
+2. Contact support for API access
+3. Replace test credentials with your own
+
+**Note:** Test credentials provide limited results but work immediately.
+
+## Keyboard Shortcuts
+
+| Action | Shortcut | Description |
+|--------|----------|-------------|
+| Open Eurobuch Overview | `Enter` | Price trends & all offers |
+| Open Direct Offer | `⌘ O` | Jump to dealer's website |
+| Copy Link | `⌘ C` | Copy offer URL |
+| Copy ISBN | `⌘ I` | Copy book ISBN |
+| Copy All Details | `⌘ ⇧ C` | Copy complete info |
+| Show Actions | `⌘ K` | Actions menu |
+
+## How It Works
+
+### Smart ISBN Detection
+
+The extension automatically:
+- Reads selected text (highlighted ISBN)
+- Checks clipboard for ISBN
+- Converts ISBN-10 to ISBN-13
+- Validates ISBN format
+
+### Search Process
+
+1. Extension queries Eurobuch API
+2. Results are parsed and sorted
+3. Cached for performance
+4. Displayed with price + shipping
+
+### Two Ways to View Offers
+
+**API Results (Quick):**
+- Shows 2-10 best offers
+- Fast, direct access
+- Sorted by price
+
+**Eurobuch Website (Complete):**
+- Shows all 35+ offers
+- Price trends & history
+- Press `Enter` on any result
+
+## Examples
+
+### Search by ISBN
+```
+9781068525728
+or
+1068525728X (auto-converts to ISBN-13)
+```
+
+### Search by Title
+```
+Harry Potter
+Thinking Fast and Slow
+```
+
+### Search by Author
+```
+Rowling
+Kahneman
+```
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+
+- Raycast app
+
+### Setup
+
+```bash
 # Clone repository
 git clone https://github.com/wdeu/eurobuch-search.git
 cd eurobuch-search
@@ -94,77 +155,112 @@ cd eurobuch-search
 # Install dependencies
 npm install
 
-# Run in development mode
+# Run in development
 npm run dev
+
+# Run tests
+npm test
 
 # Build for production
 npm run build
+```
 
-# Run linter
-npm run lint
+### Project Structure
 
-# Fix linting issues
-npm run fix-lint
-Project Structure
+```
 eurobuch-search/
 ├── src/
-│   └── eurobuch-search.tsx    # Main extension code
+│   ├── __tests__/          # Test files
+│   │   └── eurobuch-search.test.ts
+│   └── eurobuch-search.tsx # Main extension
 ├── assets/
-│   ├── extension-icon.png      # Extension icon
-│   └── extension-icon.PNG      # Icon variant
-├── package.json                 # Extension manifest
-├── tsconfig.json               # TypeScript config
-├── README.md                   # This file
-└── CHANGELOG.md                # Version history
-Running Tests
-bash
+│   └── extension-icon.png  # Extension icon
+├── metadata/               # Store screenshots
+├── README.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── package.json
+```
+
+### Running Tests
+
+```bash
+# Run all tests
 npm test
-🐛 Troubleshooting
-"Please configure your Eurobuch credentials"
-Check that you've entered both Platform ID and Password in preferences
-Verify credentials are correct by testing on Eurobuch's API directly
-"Search failed: HTTP 401"
-Your API credentials are invalid
-Contact Eurobuch support to verify your account status
-"Search failed: HTTP 403"
-Your IP might be blocked or rate-limited
-Wait a few minutes and try again
-Contact Eurobuch if problem persists
-"No Results Found"
-Try different search terms
-Check spelling of title/author
-For ISBN, ensure numbers are correct
-Some books might not be available in Eurobuch's network
-Search is slow
-First search might be slower (no cache)
-Subsequent searches are cached for better performance
-Check your internet connection
-📝 API Limits
-Rate limiting may apply based on your Eurobuch API plan
-Results are limited to 10 or 20 books (configurable)
-The extension implements caching to minimize API calls
-🤝 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-Fork the repository
-Create your feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request
-📄 License
-MIT License - see LICENSE file for details
+# Watch mode
+npm run test:watch
 
-👤 Author
-wdeu
+# Coverage report
+npm run test:coverage
+```
 
-GitHub: @wdeu
-🙏 Acknowledgments
-Eurobuch.de for providing the metasearch API
-Raycast for the amazing extension platform
-All contributors who help improve this extension
-📮 Support
-🐛 Report bugs via GitHub Issues
-💡 Request features via GitHub Discussions
-📧 Contact: booq@wdeu.de
-Made with ❤️ by wdeu
+### Code Quality
 
+```bash
+# Lint code
+npm run lint
+
+# Auto-fix issues
+npm run fix-lint
+```
+
+## Troubleshooting
+
+### No Results Found
+
+- Try the Eurobuch website link (press `Enter`)
+- Check spelling of title/author
+- Verify ISBN is correct
+- Test credentials have limited access
+
+### Search is Slow
+
+- First search builds cache (slower)
+- Subsequent searches are faster
+- Check internet connection
+
+### ISBN Not Recognized
+
+- Ensure ISBN is 10 or 13 digits
+- Remove any extra characters
+- Try both ISBN-10 and ISBN-13 formats
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Quick Links
+
+- [Report a Bug](https://github.com/wdeu/eurobuch-search/issues)
+- [Request a Feature](https://github.com/wdeu/eurobuch-search/issues)
+- [View Changelog](CHANGELOG.md)
+
+## Roadmap
+
+- [ ] Filter by book condition
+- [ ] Sort options (title, author, platform)
+- [ ] Save favorite searches
+- [ ] Export results to CSV
+- [ ] Multi-currency support
+- [ ] Price alerts
+
+## Credits
+
+- **API**: [Eurobuch.de](https://www.eurobuch.de)
+- **Platform**: [Raycast](https://www.raycast.com)
+- **Author**: [wdeu](https://github.com/wdeu)
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Support
+
+- 📧 [Open an Issue](https://github.com/wdeu/eurobuch-search/issues)
+- 💬 [Discussions](https://github.com/wdeu/eurobuch-search/discussions)
+- ⭐ Star the project if you find it useful!
+
+---
+
+Made with ❤️ for the Raycast community
