@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect } from "vitest";
 
 // Mock the Book interface
 interface Book {
@@ -367,7 +367,7 @@ describe("parseEurobuchXML", () => {
       const books = parseEurobuchXML(xml);
 
       expect(books).toHaveLength(2);
-      
+
       // First book
       expect(books[0].title).toBe("Harry Potter und der Stein der Weisen");
       expect(books[0].author).toBe("Rowling, J.K.");
@@ -375,7 +375,7 @@ describe("parseEurobuchXML", () => {
       expect(books[0].price).toBe(12.99);
       expect(books[0].shipping).toBe(2.95);
       expect(books[0].condition).toBe("gut");
-      
+
       // Second book
       expect(books[1].price).toBe(14.5);
       expect(books[1].shipping).toBe(0);
