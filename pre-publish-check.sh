@@ -92,14 +92,7 @@ else
 fi
 echo ""
 
-# Check 4: TypeScript Strict Check
-echo "📝 Running TypeScript Strict Check..."
-if npx tsc --noEmit > /dev/null 2>&1; then
-    print_success "TypeScript strict check passed"
-else
-    print_error "TypeScript has errors! Run: npx tsc --noEmit"
-fi
-echo ""
+# Check 4: REMOVED (npm run build is sufficient)
 
 # Check 5: Tests (if configured)
 echo "🧪 Checking Tests..."
@@ -138,17 +131,7 @@ else
 fi
 echo ""
 
-# Check 8: Implicit 'any' types
-echo "🔤 Checking for Implicit 'any' Types..."
-ANY_TYPES=$(grep -rn "let.*;" src/*.tsx 2>/dev/null | grep -v "let.*:.*=" || true)
-if [ -z "$ANY_TYPES" ]; then
-    print_success "No implicit 'any' types found"
-else
-    print_warning "Potential implicit 'any' types:"
-    echo "$ANY_TYPES" | sed 's/^/   /'
-    echo "   Add explicit types: let match: RegExpExecArray | null;"
-fi
-echo ""
+# Check 8: REMOVED (too imprecise)
 
 # Check 9: Extension Icon
 echo "🖼️  Checking Extension Icon..."
