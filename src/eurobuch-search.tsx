@@ -57,6 +57,7 @@ const parseEurobuchXML = (xml: string): Book[] => {
 
   while ((match = bookRegex.exec(xml)) !== null) {
     const getAttribute = (name: string): string => {
+      if (!match) return "";
       const regex = new RegExp(`${name}="([^"]*)"`, "i");
       const value = regex.exec(match[1])?.[1] || "";
       return decodeXMLEntities(value);
@@ -162,7 +163,7 @@ export default function Command() {
   const preferences = getPreferenceValues<Preferences>();
   const [searchText, setSearchText] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const debounceTimer = useRef<NodeJS.Timeout>();
+  const debounceTimer = useRef<NodeJS.Timeout | undefined>(undefined);
   const initializedRef = useRef(false);
 
   // Auto-fill from selection or clipboard on mount
@@ -225,7 +226,7 @@ export default function Command() {
     {
       keepPreviousData: true,
       onError: (err) => {
-        showToast({
+        void showToast({
           style: Toast.Style.Failure,
           title: "Search Error",
           message: err.message,
