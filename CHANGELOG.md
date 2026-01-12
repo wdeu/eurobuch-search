@@ -3,7 +3,6 @@
 ## [1.0.0] - 2025-01-08
 
 ### Added
-
 - Initial release
 - Search books by ISBN, title, or author
 - Compare prices across European book platforms
